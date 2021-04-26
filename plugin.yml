@@ -1,0 +1,12 @@
+name: TagBlock
+main: skh6075\tagblock\TagBlockLoader
+author: AvasKr
+version: 1.0.0
+api: 4.0.0
+website: https://github.com/GodVas
+
+permissions:
+  tagblock.place.permission:
+    default: op
+  tagblock.delete.permission:
+    default: op
