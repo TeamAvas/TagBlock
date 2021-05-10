@@ -75,8 +75,11 @@ final class TagBlockLoader extends PluginBase{
     }
 
     public function deleteTagBlock(Position $position): bool{
-        if (isset(self::$tags[posToStr($position)])) {
-            unset(self::$tags[posToStr($position)]);
+        if (($tag = $this->getTagBlock($position)) instanceof TagBlock) {
+            foreach ($this->getServer()->getOnlinePlayers() as $player)
+                $tag->sendRemovePacket($player);
+
+            unset (self::$tags[posToStr($position)]);
             return true;
         }
 
